@@ -1,0 +1,101 @@
+PART 1 - Notes before I started coding -----------------------------
+
+- Problem:
+Input: A series of <>^v as a string  
+Output: the number of "houses" that recieve at least one "pizza"
+rules:
+^ = row + 1
+v = row - 1
+> = column + 1
+< = column - 1
+A house can recieve more than one pizza
+Assumptions: empty string equals 1
+
+- Examples:
+  ---> 1 
+> ---> 2
+^>v< ---> 4
+^v^v^v^v^v ---> 2
+SEE TEST CASES
+
+- Data Structures:
+A way to track/store visited houes: hash?
+Way to process the input string sequentially
+
+- Algorithm:
+housesWithPizzaTracker = {string: boolean}
+numberOfhousesWithPizza = 1
+currentRow = 0
+currentColumn = 0
+
+Loop through the input string
+
+  on eacher iteration
+    if ^ row += 1
+    if v row -= 1
+    if > column += 1
+    if < column -= 1
+
+    if the "currentRow, currentColumn" does not exists in the tracker 
+      numberOfHousesWithPizza += 1
+      add it to the hash
+
+  
+  return numberOfHousesWithPizza
+
+PART 2 - Notes before I started coding -----------------------------
+
+- Problem:
+input: Same as part 1
+output: same as part 1
+rules: mostly the same as part 1
+0, 2, 4, 6 ... is the delivery person
+1, 3, 5, 6 ... is the goat
+
+- Examples:
+^v ---> 3
+^>v< ---> 3
+^v^v^v^v^v ---> 11
+
+- Data Structures: 
+Same as part 1
+
+- Algorithm:
+housesWithPizzaTracker = {"00": true}
+numberOfhousesWithPizza = 1
+humanLocation = {row: 0, col: 0}
+goatLocation = {row: 0, col: 0}
+operations = {
+  "^": obj => obj[row] += 1,
+  "v": obj => obj[row] -= 1,
+  ">": obj => obj[col] += 1,
+  "<": obj => obj[col] -= 1
+}
+
+Loop through the input string
+
+  on eacher iteration
+    declare direction
+
+    if indx is even
+      operations[direction](humanCoordinates)
+    else 
+      operations[direction](goatCoordinates)
+
+    humanCurrentHouse = humanCoordinates[row] + humanCoordinates[col]
+    goatCurrentHouse = goatCoordinates[row] + goatCoordinates[col]
+
+    if !housesWithPizzaTracker[humanCurrentHouse] {
+      numberOfHousesWithPizza += 1
+      housesWithPizzaTracker[humanCurrentHouse] = true
+    } else if !housesWithPizzaTracker[goatCurrentHouse] {
+      numberOfHousesWithPizza += 1
+      housesWithPizzaTracker[goatCurrentHouse] = true
+    }
+
+    if the "currentRow, currentColumn" does not exists in the tracker 
+      numberOfHousesWithPizza += 1
+      add it to the hash
+
+  
+  return numberOfHousesWithPizza
