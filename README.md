@@ -1,4 +1,4 @@
-# pizza-delivery-assignment
+# 🍕 pizza-delivery-assignment 🍕
 
 Thanks for checking out my pizza delivery assignment solution! Here's what's included and how to run it:
 
@@ -23,3 +23,15 @@ Solution to part two of the problem. This file includes the test cases I used to
 
 ## Run the solutions yourself
 
+Run the following commands in your console to set up the project:
+```
+git clone https://github.com/calebrs/pizza-delivery-assignment.git
+cd pizza-delivery-assignment
+npm install
+```
+
+For the solutions run:
+```
+node pizza-delivery-part-one.js
+node pizza-delivery-part-two.js
+```
