@@ -1,5 +1,7 @@
 # 🍕 pizza-delivery-assignment 🍕
 
+[Assignment Description](https://gist.github.com/mikedelorenzo-koneksa/3d273f862e919782a181c28ef5f50f54)
+
 Thanks for checking out my pizza delivery assignment! Here's what's included and how to run it:
 
 ## Files
