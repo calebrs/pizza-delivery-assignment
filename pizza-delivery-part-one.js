@@ -3,7 +3,7 @@
 const { getDeliveryInput } = require("./pizza-delivery-input.js");
 
 /*
-This function iterates through the input directions and "moves" either the delivery person on a 2d grid. The houses visited by the delivery person are tracked in an object.
+This function iterates through the input directions and "moves" the delivery person on a 2D grid. The houses visited by the delivery person are tracked in an object.
 Every time a new house is visited, the number of visited houses increasese by 1.
 */
 function getNumberOfHousesWithPizza(directions) {
