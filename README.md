@@ -15,11 +15,11 @@ This file is a simple module that gets the input from where it's hosted. It uses
 
 ### pizza-delivery-part-one.js
 
-Solution to part one of the problem. This file includes the test cases I used to test the solution at the bottom of the doc. The final answer can be found on line 40
+Solution to part one of the problem. This file includes the test cases I used to test the solution at the bottom of the doc. The final answer can be found on line 44
 
 ### pizza-delivery-part-two.js
 
-Solution to part two of the problem. This file includes the test cases I used to test the solution at the bottom of the doc. The final answer can be found on line 45
+Solution to part two of the problem. This file includes the test cases I used to test the solution at the bottom of the doc. The final answer can be found on line 51
 
 ## Run the solutions yourself
 

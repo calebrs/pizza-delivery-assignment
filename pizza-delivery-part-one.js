@@ -2,9 +2,13 @@
 
 const { getDeliveryInput } = require("./pizza-delivery-input.js");
 
+/*
+This function iterates through the input directions and "moves" either the delivery person on a 2d grid. The houses visited by the delivery person are tracked in an object.
+Every time a new house is visited, the number of visited houses increasese by 1.
+*/
 function getNumberOfHousesWithPizza(directions) {
-  const housesWithPizzaTracker = {"00": true};
-  let numberOfHousesWithPizza = 1;
+  const visitedHouses = {"00": true};
+  let numOfVisitedHouses = 1;
   let currentRow = 0;
   let currentCol = 0;
 
@@ -23,13 +27,13 @@ function getNumberOfHousesWithPizza(directions) {
 
     const currentHouse = `${currentRow}${currentCol}`;
     
-    if (!housesWithPizzaTracker[currentHouse]) {
-      numberOfHousesWithPizza += 1;
-      housesWithPizzaTracker[currentHouse] = true;
+    if (!visitedHouses[currentHouse]) {
+      numOfVisitedHouses += 1;
+      visitedHouses[currentHouse] = true;
     }
   }
 
-  return numberOfHousesWithPizza
+  return numOfVisitedHouses;
 }
 
 // Final answer

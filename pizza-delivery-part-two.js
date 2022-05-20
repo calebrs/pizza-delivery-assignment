@@ -2,9 +2,13 @@
 
 const { getDeliveryInput } = require("./pizza-delivery-input.js");
 
+/*
+This function iterates through the input directions and "moves" either the goat or human on a 2d grid. The goat and human move on every other iteration.
+The houses visited by the human and goat are tracked in an object. Every time a new house is visited, the number of visited houses increasese by 1.
+*/
 function getNumberOfHousesWithPizza(directions) {
-  let numberOfHousesWithPizza = 1;
-  const housesWithPizzaTracker = {"00": true};
+  let numOfVisitedHouses = 1;
+  const visitedHouses = {"00": true};
   const humanLocation = {row: 0, col: 0};
   const goatLocation = {row: 0, col: 0};
   const nextHouse = {
@@ -14,12 +18,13 @@ function getNumberOfHousesWithPizza(directions) {
     "<": obj => obj["col"] -= 1
   }
 
-  const editTracker = obj => {
-    const currentHouse = `${obj["row"]}${obj["col"]}`;
+  // Function created to reduce redundant code and nested if statements.
+  const addHouse = location => {
+    const currentHouse = `${location["row"]}${location["col"]}`;
 
-    if (!housesWithPizzaTracker[currentHouse]) {
-      numberOfHousesWithPizza += 1;
-      housesWithPizzaTracker[currentHouse] = true;
+    if (!visitedHouses[currentHouse]) {
+      numOfVisitedHouses += 1;
+      visitedHouses[currentHouse] = true;
     }
   }
 
@@ -28,17 +33,18 @@ function getNumberOfHousesWithPizza(directions) {
 
     if (indx % 2 === 0) {
       nextHouse[direction](humanLocation);
-      editTracker(humanLocation);
+      addHouse(humanLocation);
     } else {
       nextHouse[direction](goatLocation);
-      editTracker(goatLocation);
+      addHouse(goatLocation);
     }
   }
 
-  return numberOfHousesWithPizza
+  return numOfVisitedHouses;
 }
 
 // Final answer
+// NOTE: An IIFE is used becuase top level "await" is not allowed
 (async function() {
   const input = await getDeliveryInput();
   console.log(getNumberOfHousesWithPizza(input));
